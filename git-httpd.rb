@@ -5,8 +5,8 @@ require 'sinatra'
 require 'rugged'
 require 'mime/types'
 
-REPO_PATH = ENV['HOME'] + '/git/libgit2'
-REF_NAME = 'refs/heads/gh-pages'
+REPO_PATH = ENV['HOME'] + '/projects/libgit2'
+REF_NAME = 'refs/remotes/upstream/gh-pages'
 
 repo = Rugged::Repository.new(REPO_PATH)
 
