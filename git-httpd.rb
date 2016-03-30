@@ -11,7 +11,7 @@ REF_NAME = 'refs/remotes/upstream/gh-pages'
 repo = Rugged::Repository.new(REPO_PATH)
 
 get '*' do |path|
-  commit = repo.lookup(repo.ref(REF_NAME).target)
+  commit = repo.ref(REF_NAME).target
   path.slice!(0)
   path = 'index.html' if path.empty?
 
