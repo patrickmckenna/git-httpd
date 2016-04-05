@@ -1,17 +1,16 @@
 #!/usr/bin/env ruby
 
-require 'rubygems'
 require 'sinatra'
 require 'rugged'
 require 'mime/types'
 
-REPO_PATH = ENV['HOME'] + '/projects/libgit2'
-REF_NAME = 'refs/remotes/upstream/gh-pages'
+repo_path = ENV['HOME'] + '/projects/libgit2'
+ref_name = 'refs/remotes/upstream/gh-pages'
 
-repo = Rugged::Repository.new(REPO_PATH)
+repo = Rugged::Repository.new(repo_path)
 
 get '*' do |path|
-  commit = repo.ref(REF_NAME).target
+  commit = repo.ref(ref_name).target
   path.slice!(0)
   path = 'index.html' if path.empty?
 
